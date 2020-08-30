@@ -38,9 +38,9 @@ module Erp
           
           authorize! :create, @product
           
-          12.times do
-            @product.product_images.build
-          end
+          # 12.times do
+          #   @product.product_images.build
+          # end
           @product.deal_from_date = ''
           @product.deal_to_date = ''
 
@@ -55,9 +55,9 @@ module Erp
           authorize! :update, @product
           
           # default product images
-          (12 - @product.product_images.count).times do
-            @product.product_images.build
-          end
+          # (12 - @product.product_images.count).times do
+          #   @product.product_images.build
+          # end
         end
 
         # POST /products
@@ -67,9 +67,9 @@ module Erp
           authorize! :create, @product
           
           @product.creator = current_user
-          8.times do
-            @product.product_images.build
-          end
+          # 8.times do
+          #   @product.product_images.build
+          # end
           @product.product_property_values = params.to_unsafe_hash[:product_property_values]
 
           #@todo HK-ERP connector

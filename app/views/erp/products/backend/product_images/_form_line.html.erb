@@ -1,0 +1,67 @@
+
+<hr>
+<div class="line-items d-flex justify-content-space-between align-items-center">
+    <div class="line-item">
+        <input type="hidden" name="product[product_images_attributes][<%= uid %>][id]" value="<%= product_image.id %>">
+        <input type="hidden" name="product[product_images_attributes][<%= uid %>][_destroy]" value="">
+        <%= erp_form_control('image', {
+            img_src: product_image.image_url.medium,
+            name: 'product[product_images_attributes][' + uid + '][image_url]',
+            width: 150,
+            height: 150,
+            class: 'mb-0'
+        }) %>
+    </div>
+    <div class="line-item">
+        <%= erp_form_control("textarea", {
+            name: 'product[product_images_attributes][' + uid + '][description]',
+            value: product_image.description,
+            label: 'Mô tả',
+            placeholder: 'Nhập mô tả cho ảnh',
+            rows: 5
+        }) %>
+    </div>
+    <div class="line-item">
+        <div class="form-group">
+            <label>Đặt làm ảnh chính?</label>
+            <div class="input-group">
+                <input hidden name="product[product_images_attributes][<%= uid %>][is_main]"
+                    value="false">
+                <input type="radio" <%= 'checked' if product_image.is_main == true %>
+                    name="product[product_images_attributes][<%= uid %>][is_main]"
+                    value="true"> Chọn
+            </div>
+        </div>
+    </div>
+    <div class="line-item">
+        <%= erp_form_control("addableform_remove_button", {
+            is_nested_form: true
+        }) %>
+    </div>
+</div>
+
+<% if product_image.id.nil? %>
+<script>
+    $('.addableform-container input:radio').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%' // optional
+    });
+    $(".addableform-container input:radio").on('ifChecked', function() {
+        $(this).closest('.addableform-container').find('input:radio').not(this).iCheck('uncheck');
+    })
+</script>
+<% end %>
+
+<% content_for :page_script do %>
+<script>
+    $('.addableform-container input:radio').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%' // optional
+    });
+    $(".addableform-container input:radio").on('ifChecked', function() {
+        $(this).closest('.addableform-container').find('input:radio').not(this).iCheck('uncheck');
+    })
+</script>
+<% end %>

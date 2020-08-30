@@ -167,6 +167,11 @@ Erp::Products::Engine.routes.draw do
           put 'finished_all'
 				end
 			end
+      resources :product_images do
+				collection do
+          get 'form_line'
+				end
+			end
       resources :units do
         collection do
           get 'dataselect'
