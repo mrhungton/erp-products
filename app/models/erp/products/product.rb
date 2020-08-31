@@ -1319,7 +1319,7 @@ module Erp::Products
 
     # get product main images
     def main_image
-			product_images.where(is_main: true).first
+      product_images.where(is_main: true).present? ? product_images.where(is_main: true) : product_images.first
 		end
 
     # get product sub images
