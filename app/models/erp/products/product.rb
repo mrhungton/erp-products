@@ -1319,7 +1319,7 @@ module Erp::Products
 
     # get product main images
     def main_image
-			product_images.first
+			product_images.where(is_main: true).first
 		end
 
     # get product sub images
@@ -1558,6 +1558,15 @@ module Erp::Products
 		# Get category name
 		def category_name
 			category.nil? ? '' : category.name
+		end
+
+		# Get category full name
+    def category_full_name
+      c_name = ''
+      if category.present?
+        c_name = (category.parent_name.empty? ? '' : "#{category.parent_name} / ") + category.name
+      end
+      return c_name
 		end
 
 		# data for dataselect ajax
