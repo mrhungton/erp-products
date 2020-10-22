@@ -43,7 +43,7 @@ Erp::Products::Engine.routes.draw do
       resources :products do
         collection do
           post 'list'
-          get 'dataselect'
+          post 'dataselect'
           delete 'delete_all'
           put 'archive_all'
           put 'unarchive_all'

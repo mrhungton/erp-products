@@ -68,7 +68,7 @@ module Erp::Products
 
     has_many :products_values, -> { order 'erp_products_products_values.id' }, dependent: :destroy
     has_many :comments, class_name: 'Erp::Products::Comment', dependent: :destroy
-    has_many :ratings, class_name: 'Erp::Products::Rating', dependent: :destroy
+	has_many :ratings, class_name: 'Erp::Products::Rating', dependent: :destroy
 
     OUT_OF_STOCK = 'out_of_stock'
     IN_TOCK = 'in_stock'
