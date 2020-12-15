@@ -4,7 +4,7 @@ Erp::Products::Engine.routes.draw do
 			resources :inventory_products do
 				collection do
 					post 'list'
-					get 'dataselect'
+					post 'dataselect'
 					delete 'delete_all'
 					put 'archive'
 					put 'unarchive'
@@ -17,7 +17,7 @@ Erp::Products::Engine.routes.draw do
 			resources :inventory_categories do
 				collection do
 					post 'list'
-					get 'dataselect'
+					post 'dataselect'
 					delete 'delete_all'
 					put 'archive'
 					put 'unarchive'
@@ -30,7 +30,7 @@ Erp::Products::Engine.routes.draw do
       resources :categories do
         collection do
           post 'list'
-          get 'dataselect'
+          post 'dataselect'
           delete 'delete_all'
           put 'archive_all'
           put 'unarchive_all'
@@ -93,7 +93,7 @@ Erp::Products::Engine.routes.draw do
       resources :states do
 				collection do
 					post 'list'
-					get 'dataselect'
+					post 'dataselect'
 					delete 'delete_all'
 					put 'set_draft'
 					put 'set_active'
@@ -110,7 +110,7 @@ Erp::Products::Engine.routes.draw do
       resources :state_checks do
 				collection do
 					post 'list'
-					get 'dataselect'
+					post 'dataselect'
 					delete 'delete_all'
 					put 'set_draft'
 					put 'set_pending'
@@ -136,7 +136,7 @@ Erp::Products::Engine.routes.draw do
 			end
       resources :properties do
         collection do
-          get 'dataselect'
+          post 'dataselect'
           post 'list'
           delete 'delete_all'
           put 'archive_all'
@@ -150,7 +150,7 @@ Erp::Products::Engine.routes.draw do
       end
       resources :properties_values do
         collection do
-          get 'dataselect'
+          post 'dataselect'
           post 'list'
           get 'export_products'
         end
@@ -174,7 +174,7 @@ Erp::Products::Engine.routes.draw do
 			end
       resources :units do
         collection do
-          get 'dataselect'
+          post 'dataselect'
           post 'list'
           delete 'delete_all'
           put 'archive_all'
@@ -197,7 +197,7 @@ Erp::Products::Engine.routes.draw do
       resources :price_lists do
 				collection do
 					post 'list'
-					get 'dataselect'
+					post 'dataselect'
 					delete 'delete_all'
           put 'enable_all'
           put 'disable_all'
@@ -209,7 +209,7 @@ Erp::Products::Engine.routes.draw do
         collection do
           post 'list'
           get 'damage_record_details'
-          get 'dataselect'
+          post 'dataselect'
           delete 'delete_all'
           put 'set_draft'
           put 'set_pending'
@@ -230,7 +230,7 @@ Erp::Products::Engine.routes.draw do
         collection do
           post 'list'
           get 'stock_check_details'
-          get 'dataselect'
+          post 'dataselect'
           delete 'delete_all'
           put 'set_draft'
           put 'set_pending'
@@ -258,7 +258,7 @@ Erp::Products::Engine.routes.draw do
 			end
       resources :brands do
         collection do
-          get 'dataselect'
+          post 'dataselect'
           post 'list'
           delete 'delete_all'
           put 'archive_all'
@@ -269,7 +269,7 @@ Erp::Products::Engine.routes.draw do
       end
       resources :brand_groups do
         collection do
-          get 'dataselect'
+          post 'dataselect'
           post 'list'
           delete 'delete_all'
           put 'archive_all'
@@ -285,7 +285,7 @@ Erp::Products::Engine.routes.draw do
 			end
       resources :property_groups do
         collection do
-          get 'dataselect'
+          post 'dataselect'
           post 'list'
           delete 'delete_all'
           put 'archive_all'
@@ -295,12 +295,12 @@ Erp::Products::Engine.routes.draw do
 
           put 'move_up'
           put 'move_down'
-          get 'dataselect'
+          post 'dataselect'
         end
       end
       resources :accessories do
         collection do
-          get 'dataselect'
+          post 'dataselect'
           post 'list'
           put 'archive'
           put 'unarchive'
@@ -338,7 +338,7 @@ Erp::Products::Engine.routes.draw do
       resources :events do
         collection do
           post 'list'
-          get 'dataselect'
+          post 'dataselect'
           delete 'delete_all'
           put 'archive_all'
           put 'unarchive_all'
