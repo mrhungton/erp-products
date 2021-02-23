@@ -1,5 +1,6 @@
 module Erp::Products
   class Product < ApplicationRecord
+    include Erp::CustomOrder
 		attr_accessor :product_property_values
 		#validates :name, :uniqueness => true
     validates :category_id, :presence => true
