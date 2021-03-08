@@ -697,6 +697,34 @@ module Erp
           end
         end
 
+        # Move up /categories/up?id=1
+        def move_up
+          @product.move_up
+
+          respond_to do |format|
+          format.json {
+            render json: {
+            #'message': t('.success'),
+            #'type': 'success'
+            }
+          }
+          end
+        end
+
+        # Move down /categories/up?id=1
+        def move_down
+          @product.move_down
+
+          respond_to do |format|
+          format.json {
+            render json: {
+            #'message': t('.success'),
+            #'type': 'success'
+            }
+          }
+          end
+        end
+
         private
           # Use callbacks to share common setup or constraints between actions.
           def set_product
@@ -724,6 +752,7 @@ module Erp
               :products_gifts_attributes => [ :id, :gift_id, :quantity, :price, :product_id, :_destroy ]
             )
           end
+
       end
     end
   end
