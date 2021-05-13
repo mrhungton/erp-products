@@ -157,12 +157,12 @@ module Erp::Products
         query = query.where.not(id: params[:remove_ids].split(','))
       end
 
-      query = query.limit(20).map{|category| {value: category.id, text: (category.parent_name.empty? ? '' : "#{category.parent_name} / ") + category.name} }
+      query = query.limit(20).map{|category| {value: category.id, text: category.full_name} }
     end
 
     # product count
     def product_count
-			products.count
+			products.get_active.count
 		end
 
     def archive
@@ -194,7 +194,7 @@ module Erp::Products
 				names << p.name
 				p = p.parent
 			end
-			names.reverse.join(" >> ")
+			names.reverse.join(" → ")
 		end
 
     # Get get all archive
